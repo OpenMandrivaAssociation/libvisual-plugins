@@ -11,7 +11,6 @@ Patch0:	 %name-buffer-overflow.patch
 License: GPL
 Group: System/Libraries
 Url: http://localhost.nl/~synap/libvisual/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes: libvisual-nebulus
 Obsoletes: libvisual-gforce
 Provides: libvisual-nebulus
