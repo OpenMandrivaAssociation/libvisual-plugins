@@ -1,6 +1,6 @@
 %define name libvisual-plugins
 %define version 0.4.0
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
