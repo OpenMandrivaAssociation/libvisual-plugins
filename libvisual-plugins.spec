@@ -1,11 +1,10 @@
 %define name libvisual-plugins
 %define version 0.4.0
-%define release %mkrel 6
 
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %{release}
+Release: %mkrel 7
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
 License: GPL
