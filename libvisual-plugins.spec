@@ -4,7 +4,7 @@
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %mkrel 7
+Release: %mkrel 8
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
 License: GPL
