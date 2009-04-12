@@ -4,10 +4,12 @@
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %mkrel 8
+Release: %mkrel 9
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
-License: GPL
+#https://qa.mandriva.com/show_bug.cgi?id=49801
+Patch1: 60_no-const-vispluginfo-in-nastyfft.patch
+License: LGPLv2+
 Group: System/Libraries
 Url: http://localhost.nl/~synap/libvisual/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -34,6 +36,7 @@ This package contains the libvisual example plugins.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1
 
 %build
 %ifarch %ix86
