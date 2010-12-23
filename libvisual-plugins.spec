@@ -12,7 +12,7 @@ Patch1: 60_no-const-vispluginfo-in-nastyfft.patch
 Patch2: libvisual-plugins-0.4.0-link.patch
 License: LGPLv2+
 Group: System/Libraries
-Url: http://localhost.nl/~synap/libvisual/
+Url: http://localhost.nl/~synap/libvisual-wiki/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes: libvisual-nebulus
 Obsoletes: libvisual-gforce
