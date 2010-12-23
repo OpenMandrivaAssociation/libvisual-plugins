@@ -4,11 +4,12 @@
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %mkrel 12
+Release: %mkrel 13
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
 Patch1: 60_no-const-vispluginfo-in-nastyfft.patch
+Patch2: libvisual-plugins-0.4.0-link.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://localhost.nl/~synap/libvisual/
@@ -18,14 +19,10 @@ Obsoletes: libvisual-gforce
 Provides: libvisual-nebulus
 Provides: libvisual-gforce
 BuildRequires: libvisual-devel >= %version
-BuildRequires: esound-devel
+BuildRequires: mesaglu-devel
+BuildRequires: libalsa-devel
+BuildRequires: libgdk_pixbuf2.0-devel
 BuildRequires: bison
-BuildRequires: chrpath
-%if %mdkversion > 200600
-BuildRequires:	X11-devel
-%else
-BuildRequires:	X11-devel
-%endif
 
 %description
 Libvisual is a library that acts as a middle layer between
@@ -33,10 +30,12 @@ applications that want audio visualisation and audio visualisation
 plugins.
 
 This package contains the libvisual example plugins.
+
 %prep
 %setup -q
 %patch0 -p0
 %patch1 -p1
+%patch2 -p0
 
 %build
 %ifarch %ix86
@@ -50,6 +49,7 @@ rm -rf %buildroot
 
 %makeinstall_std
 %find_lang %name-0.4
+
 %clean
 rm -rf %buildroot
 
@@ -58,6 +58,3 @@ rm -rf %buildroot
 %doc README AUTHORS ChangeLog NEWS
 %_libdir/libvisual*
 %_datadir/%{name}*
-
-
-
