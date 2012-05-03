@@ -4,7 +4,7 @@
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %mkrel 14
+Release: %mkrel 15
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
