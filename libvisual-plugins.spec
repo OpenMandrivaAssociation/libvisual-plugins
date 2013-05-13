@@ -18,7 +18,7 @@ Obsoletes: libvisual-nebulus
 Obsoletes: libvisual-gforce
 Provides: libvisual-nebulus
 Provides: libvisual-gforce
-BuildRequires: libvisual-devel >= %version
+BuildRequires: pkgconfig(libvisual-0.4) >= %version
 BuildRequires: mesaglu-devel
 BuildRequires: libalsa-devel
 BuildRequires: libgdk_pixbuf2.0-devel
