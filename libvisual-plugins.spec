@@ -4,7 +4,7 @@
 Summary: Visualisation plugins for applications based on libvisual
 Name: %{name}
 Version: %{version}
-Release: %mkrel 16
+Release: 17
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %name-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
@@ -13,7 +13,6 @@ Patch2: libvisual-plugins-0.4.0-link.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://localhost.nl/~synap/libvisual-wiki/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes: libvisual-nebulus
 Obsoletes: libvisual-gforce
 Provides: libvisual-nebulus
