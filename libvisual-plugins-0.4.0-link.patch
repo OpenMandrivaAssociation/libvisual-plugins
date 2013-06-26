@@ -1,5 +1,5 @@
---- plugins/actor/lv_gltest/Makefile.am.link	2010-12-23 03:25:22.000000000 +0100
-+++ plugins/actor/lv_gltest/Makefile.am	2010-12-23 03:26:11.000000000 +0100
+--- ./plugins/actor/lv_gltest/Makefile.am.link	2010-12-23 03:25:22.000000000 +0100
++++ ./plugins/actor/lv_gltest/Makefile.am	2010-12-23 03:26:11.000000000 +0100
 @@ -4,5 +4,5 @@
  
  actor_lv_gltest_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) $(X_CFLAGS)
@@ -7,8 +7,8 @@
 -actor_lv_gltest_la_LIBS = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL -lGLU 
 +actor_lv_gltest_la_LIBADD = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL -lGLU 
  actor_lv_gltest_la_SOURCES = actor_lv_gltest.c
---- plugins/actor/lv_gltest/Makefile.in.link	2010-12-23 03:26:17.000000000 +0100
-+++ plugins/actor/lv_gltest/Makefile.in	2010-12-23 03:26:54.000000000 +0100
+--- ./plugins/actor/lv_gltest/Makefile.in.link	2010-12-23 03:26:17.000000000 +0100
++++ ./plugins/actor/lv_gltest/Makefile.in	2010-12-23 03:26:54.000000000 +0100
 @@ -186,7 +186,7 @@
  
  actor_lv_gltest_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) $(X_CFLAGS)
@@ -27,8 +27,8 @@
  am_actor_lv_gltest_la_OBJECTS = actor_lv_gltest_la-actor_lv_gltest.lo
  actor_lv_gltest_la_OBJECTS = $(am_actor_lv_gltest_la_OBJECTS)
  
---- plugins/actor/madspin/Makefile.am.link	2010-12-23 03:28:13.000000000 +0100
-+++ plugins/actor/madspin/Makefile.am	2010-12-23 03:28:27.000000000 +0100
+--- ./plugins/actor/madspin/Makefile.am.link	2010-12-23 03:28:13.000000000 +0100
++++ ./plugins/actor/madspin/Makefile.am	2010-12-23 03:28:27.000000000 +0100
 @@ -10,5 +10,5 @@
  
  actor_madspin_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) -DSTAR_DIR=\""$(imagesdir)/"\"
@@ -36,8 +36,8 @@
 -actor_madspin_la_LIBS = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL 
 +actor_madspin_la_LIBADD = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL 
  actor_madspin_la_SOURCES = madspin.c
---- plugins/actor/madspin/Makefile.in.link	2010-12-23 03:28:33.000000000 +0100
-+++ plugins/actor/madspin/Makefile.in	2010-12-23 03:28:50.000000000 +0100
+--- ./plugins/actor/madspin/Makefile.in.link	2010-12-23 03:28:33.000000000 +0100
++++ ./plugins/actor/madspin/Makefile.in	2010-12-23 03:28:50.000000000 +0100
 @@ -193,7 +193,7 @@
  
  actor_madspin_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) -DSTAR_DIR=\""$(imagesdir)/"\"
@@ -56,8 +56,8 @@
  am_actor_madspin_la_OBJECTS = actor_madspin_la-madspin.lo
  actor_madspin_la_OBJECTS = $(am_actor_madspin_la_OBJECTS)
  
---- plugins/actor/nastyfft/Makefile.am.link	2010-12-23 03:27:14.000000000 +0100
-+++ plugins/actor/nastyfft/Makefile.am	2010-12-23 03:27:27.000000000 +0100
+--- ./plugins/actor/nastyfft/Makefile.am.link	2010-12-23 03:27:14.000000000 +0100
++++ ./plugins/actor/nastyfft/Makefile.am	2010-12-23 03:27:27.000000000 +0100
 @@ -4,5 +4,5 @@
  
  actor_nastyfft_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) $(X_CFLAGS)
@@ -65,8 +65,8 @@
 -actor_nastyfft_la_LIBS = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL -lGLU
 +actor_nastyfft_la_LIBADD = $(LIBVISUAL_LIBS) $(X_LIBS) -lGL -lGLU
  actor_nastyfft_la_SOURCES = actor_nastyfft.c
---- plugins/actor/nastyfft/Makefile.in.link	2010-12-23 03:27:35.000000000 +0100
-+++ plugins/actor/nastyfft/Makefile.in	2010-12-23 03:27:54.000000000 +0100
+--- ./plugins/actor/nastyfft/Makefile.in.link	2010-12-23 03:27:35.000000000 +0100
++++ ./plugins/actor/nastyfft/Makefile.in	2010-12-23 03:27:54.000000000 +0100
 @@ -186,7 +186,7 @@
  
  actor_nastyfft_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) $(X_CFLAGS)
@@ -85,8 +85,8 @@
  am_actor_nastyfft_la_OBJECTS = actor_nastyfft_la-actor_nastyfft.lo
  actor_nastyfft_la_OBJECTS = $(am_actor_nastyfft_la_OBJECTS)
  
---- plugins/actor/pseudotoad_flower/Makefile.am.link	2010-12-23 03:29:15.000000000 +0100
-+++ plugins/actor/pseudotoad_flower/Makefile.am	2010-12-23 03:29:26.000000000 +0100
+--- ./plugins/actor/pseudotoad_flower/Makefile.am.link	2010-12-23 03:29:15.000000000 +0100
++++ ./plugins/actor/pseudotoad_flower/Makefile.am	2010-12-23 03:29:26.000000000 +0100
 @@ -4,7 +4,7 @@
  
  actor_flower_la_LDFLAGS = -module -avoid-version 
@@ -96,8 +96,8 @@
  
  actor_flower_la_SOURCES = \
  	actor_flower.c \
---- plugins/actor/pseudotoad_flower/Makefile.in.link	2010-12-23 03:29:32.000000000 +0100
-+++ plugins/actor/pseudotoad_flower/Makefile.in	2010-12-23 03:29:57.000000000 +0100
+--- ./plugins/actor/pseudotoad_flower/Makefile.in.link	2010-12-23 03:29:32.000000000 +0100
++++ ./plugins/actor/pseudotoad_flower/Makefile.in	2010-12-23 03:29:57.000000000 +0100
 @@ -186,7 +186,7 @@
  
  actor_flower_la_LDFLAGS = -module -avoid-version 
