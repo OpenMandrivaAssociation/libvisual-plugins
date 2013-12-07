@@ -1,7 +1,7 @@
 Summary:	Visualisation plugins for applications based on libvisual
 Name:		libvisual-plugins
 Version:	0.4.0
-Release:	18
+Release:	19
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://localhost.nl/~synap/libvisual-wiki/
