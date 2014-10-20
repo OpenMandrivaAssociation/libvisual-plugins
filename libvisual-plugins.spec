@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	Visualisation plugins for applications based on libvisual
 Name:		libvisual-plugins
 Version:	0.4.0
@@ -31,6 +33,7 @@ This package contains the libvisual example plugins.
 %apply_patches
 
 %build
+export CC=gcc
 %ifarch %ix86
 export CFLAGS="-mmmx %optflags"
 %endif
