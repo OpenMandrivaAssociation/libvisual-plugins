@@ -1,4 +1,6 @@
 %define _disable_ld_no_undefined 1
+%define _disable_rebuild_configure 1
+%define _disable_lto 1
 
 Summary:	Visualisation plugins for applications based on libvisual
 Name:		libvisual-plugins
