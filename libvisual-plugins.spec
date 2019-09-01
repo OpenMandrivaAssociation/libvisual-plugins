@@ -39,6 +39,7 @@ This package contains the libvisual example plugins.
 
 %build
 export CC=gcc
+export CXX=g++
 %ifarch %ix86
 export CFLAGS="-mmmx %optflags"
 %endif
