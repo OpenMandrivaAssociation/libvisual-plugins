@@ -17,9 +17,10 @@ Patch2:		libvisual-plugins-0.4.0-link.patch
 
 BuildRequires:	bison
 BuildRequires:	pkgconfig(alsa)
-BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(libvisual-0.4) >= %version
+BuildRequires: pkgconfig(gtk+-2.0)
+BuildRequires: gettext-devel
 Provides:	libvisual-nebulus
 Provides:	libvisual-gforce
 
