@@ -14,6 +14,8 @@ Patch0:		%{name}-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
 Patch1:		60_no-const-vispluginfo-in-nastyfft.patch
 Patch2:		libvisual-plugins-0.4.0-link.patch
+Patch3:        libvisual-plugins-0.4.0-fix-some-gcc-warnings.patch
+Patch4:        libvisual-plugins-0.4.0-gcc5.patch
 
 BuildRequires:	bison
 BuildRequires:	pkgconfig(alsa)
