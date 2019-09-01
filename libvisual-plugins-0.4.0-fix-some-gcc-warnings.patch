@@ -1,0 +1,96 @@
+Description: fix some GCC warnings.
+Author: Joao Eriberto Mota Filho <eriberto@debian.org>
+Last-Update: 2015-08-07
+Index: libvisual-plugins-0.4.0+dfsg1/plugins/input/mplayer/input_mplayer.c
+===================================================================
+--- libvisual-plugins-0.4.0+dfsg1.orig/plugins/input/mplayer/input_mplayer.c
++++ libvisual-plugins-0.4.0+dfsg1/plugins/input/mplayer/input_mplayer.c
+@@ -155,7 +155,8 @@ int inp_mplayer_init( VisPluginData *plu
+ 
+ 	priv->mmap_area = mmap( 0, sizeof( mplayer_data_t ),
+ 			PROT_READ, MAP_SHARED, priv->fd, 0 );
+-	visual_log_return_val_if_fail( (int)priv->mmap_area != -1, -1 );
++// [FIX] input_mplayer.c:158:33: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
++	visual_log_return_val_if_fail( (long)priv->mmap_area != -1, -1 );
+ 
+ 	if ( priv->mmap_area->nch == 0 )
+ 	{
+@@ -179,11 +180,13 @@ int inp_mplayer_init( VisPluginData *plu
+ 	priv->mmap_area = mremap( priv->mmap_area, sizeof( mplayer_data_t ),
+ 			sizeof( mplayer_data_t ) + priv->mmap_area->bs,
+ 			0 );
+-	if ( (int)priv->mmap_area == -1 )
++// [FIX] input_mplayer.c:183:7: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
++	if ( (long)priv->mmap_area == -1 )
+ 	{
+ 		visual_log( VISUAL_LOG_CRITICAL, 
++// [FIX] input_mplayer.c:187:7: warning: format '%d' expects argument of type 'int', but argument 8 has type 'long unsigned int' [-Wformat=]
+ 				_("Could not mremap() area from file '%s' " \
+-					" (%p from %d to %d bytes): %s"),
++					" (%p from %ld to %ld bytes): %s"),
+ 				priv->sharedfile, 
+ 				priv->mmap_area, sizeof( mplayer_data_t ),
+ 				sizeof( mplayer_data_t ) + priv->mmap_area->bs,
+Description: fix jess visual plugin segfaults totem while (Closes: #400810)
+Author: ?
+Last-Update: 2006-02-05
+Index: libvisual-plugins-0.4.0+dfsg1/plugins/actor/JESS/renderer.c
+===================================================================
+--- libvisual-plugins-0.4.0+dfsg1.orig/plugins/actor/JESS/renderer.c
++++ libvisual-plugins-0.4.0+dfsg1/plugins/actor/JESS/renderer.c
+@@ -282,7 +282,7 @@ void fade(float variable, uint8_t * dim)
+ 
+ void render_deformation(JessPrivate *priv, int defmode)
+ {
+-	uint32_t bmax;
++	intptr_t bmax;
+ 	uint32_t *tab1 = NULL, *tab2, *tab3, *tab4, i;
+ 	uint8_t *pix = priv->pixel, *buf = priv->buffer, *aux;
+ 
+@@ -294,7 +294,7 @@ void render_deformation(JessPrivate *pri
+ 		tab2 = priv->table2;
+ 		tab3 = priv->table3;
+ 		tab4 = priv->table4;
+-		bmax = priv->resx * priv->resy + (uint32_t) priv->pixel;
++		bmax = priv->resx * priv->resy + (intptr_t) priv->pixel;
+ 
+ 		switch(defmode)
+ 		{
+@@ -352,7 +352,7 @@ void render_deformation(JessPrivate *pri
+ 		}
+ 		for (i = 0; i < priv->resy * priv->resx; i++)
+ 		{
+-			aux  =  (uint8_t *) ((*(tab1) << 2 ) + (uint32_t) priv->buffer);
++			aux  =  (uint8_t *) ((*(tab1) << 2 ) + (intptr_t) priv->buffer);
+ 			*(pix++) = *(aux++) ;
+ 			*(pix++) = *(aux++);  
+ 			*(pix++) = *(aux);  
+@@ -373,7 +373,8 @@ void render_blur(JessPrivate *priv, int
+ 	/* j'ai mis pixel par defaut... */
+ 
+ 	uint8_t *pix = priv->pixel;
+-	uint32_t bmax,pitch_4;
++	intptr_t bmax;
++	uint32_t pitch_4;
+ 	
+ 	pix = priv->pixel;
+ 	if (priv->pixel == NULL)
+@@ -387,7 +388,7 @@ void render_blur(JessPrivate *priv, int
+ 	if (priv->video == 8)
+ 	{
+ 		if (visual_cpu_get_mmx ()) {
+-			bmax = priv->resx * (priv->resy-1) + (uint32_t) priv->pixel;
++			bmax = priv->resx * (priv->resy-1) + (intptr_t) priv->pixel;
+ #if defined(VISUAL_ARCH_X86) || defined(VISUAL_ARCH_X86_64)
+ 			__asm __volatile
+ 				("\n\t pxor %%mm6, %%mm6"
+@@ -423,7 +424,7 @@ void render_blur(JessPrivate *priv, int
+ 	else
+ 	{
+ 		pitch_4 = priv->pitch+4;
+-		bmax = priv->pitch*(priv->resy-1) + (uint32_t) priv->pixel;
++		bmax = priv->pitch*(priv->resy-1) + (intptr_t) priv->pixel;
+ 
+ 		if (visual_cpu_get_mmx ()) {
+ #if defined(VISUAL_ARCH_X86) || defined(VISUAL_ARCH_X86_64)
+ 
