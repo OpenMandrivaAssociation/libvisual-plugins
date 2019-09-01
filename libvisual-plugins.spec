@@ -5,7 +5,7 @@
 Summary:	Visualisation plugins for applications based on libvisual
 Name:		libvisual-plugins
 Version:	0.4.0
-Release:	28
+Release:	29
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://localhost.nl/~synap/libvisual-wiki/
@@ -44,10 +44,10 @@ export CXX=g++
 export CFLAGS="-mmmx %optflags"
 %endif
 %configure --disable-gstreamer-plugin
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name}-0.4
 
 %files -f %{name}-0.4.lang
