@@ -40,7 +40,7 @@ export CC=gcc
 %ifarch %ix86
 export CFLAGS="-mmmx %optflags"
 %endif
-%configure2_5x
+%configure --disable-gstreamer-plugin
 %make
 
 %install
