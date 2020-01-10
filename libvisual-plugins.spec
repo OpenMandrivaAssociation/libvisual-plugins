@@ -35,7 +35,7 @@ This package contains the libvisual example plugins.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 export CC=gcc
