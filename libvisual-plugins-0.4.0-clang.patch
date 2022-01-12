@@ -1,0 +1,40 @@
+diff -up libvisual-plugins-0.4.0/plugins/actor/G-Force/Common/UI/LineXX.cpp.omv~ libvisual-plugins-0.4.0/plugins/actor/G-Force/Common/UI/LineXX.cpp
+--- libvisual-plugins-0.4.0/plugins/actor/G-Force/Common/UI/LineXX.cpp.omv~	2022-01-12 16:03:31.053564931 +0100
++++ libvisual-plugins-0.4.0/plugins/actor/G-Force/Common/UI/LineXX.cpp	2022-01-12 16:04:35.309881238 +0100
+@@ -74,13 +74,13 @@
+ 
+ 		
+ 	#if CLR_INTERP && P_SZ != 1
+-	long len = sqrt( dx * dx + dy * dy ) + 1;
++	long len = sqrtf( dx * dx + dy * dy ) + 1;
+ 	dR /= len;
+ 	dG /= len;
+ 	dB /= len;
+ 	color = __Clr( R, G, B );
+ 	#elif CLR_INTERP && P_SZ == 1
+-	long len = sqrt( dx * dx + dy * dy ) + 1;
++	long len = sqrtf( dx * dx + dy * dy ) + 1;
+ 	dR /= len;
+ 	color = __Clr( R, G, B );
+ 	#endif
+@@ -154,7 +154,7 @@
+ 		
+ 			for ( j = 0; j < tw; j++ ) {
+ 				long tmp = j - halfW;
+-				c_x = halfW - ( ( long ) sqrt( halfW * halfW - tmp * tmp ) );
++				c_x = halfW - ( ( long ) sqrtf( halfW * halfW - tmp * tmp ) );
+ 				center = basePtr + (j-halfW) * mBytesPerRow;
+ 				for ( int k = c_x; k < tw - c_x; k++ ){
+ 					((PIXTYPE*) center)[k-halfW] = color;
+diff -up libvisual-plugins-0.4.0/plugins/morph/flash/morph_flash.c.omv~ libvisual-plugins-0.4.0/plugins/morph/flash/morph_flash.c
+--- libvisual-plugins-0.4.0/plugins/morph/flash/morph_flash.c.omv~	2022-01-12 16:05:05.043017508 +0100
++++ libvisual-plugins-0.4.0/plugins/morph/flash/morph_flash.c	2022-01-12 16:05:23.816100491 +0100
+@@ -116,7 +116,7 @@ int lv_morph_flash_palette (VisPluginDat
+ 	FlashPrivate *priv = visual_object_get_private (VISUAL_OBJECT (plugin));
+ 
+ 	if (src1->pal == NULL || src2->pal == NULL)
+-		return;
++		return 0;
+ 
+ 	if (rate < 0.5)
+ 		visual_palette_blend (pal, src1->pal, &priv->whitepal, rate * 2);

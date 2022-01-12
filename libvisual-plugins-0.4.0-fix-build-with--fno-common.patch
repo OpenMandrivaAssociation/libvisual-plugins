@@ -1,0 +1,33 @@
+diff -up libvisual-plugins-0.4.0/plugins/actor/oinksie/table.c.omv~ libvisual-plugins-0.4.0/plugins/actor/oinksie/table.c
+--- libvisual-plugins-0.4.0/plugins/actor/oinksie/table.c.omv~	2022-01-12 15:59:42.910704460 +0100
++++ libvisual-plugins-0.4.0/plugins/actor/oinksie/table.c	2022-01-12 15:59:54.666704862 +0100
+@@ -26,6 +26,11 @@
+ #include "common.h"
+ #include "table.h"
+ 
++float _oink_table_sin[OINK_TABLE_NORMAL_SIZE];
++float _oink_table_cos[OINK_TABLE_NORMAL_SIZE];
++float _oink_table_sinlarge[OINK_TABLE_LARGE_SIZE];
++float _oink_table_coslarge[OINK_TABLE_LARGE_SIZE];
++
+ void _oink_table_init ()
+ {
+ 	float adder;
+diff -up libvisual-plugins-0.4.0/plugins/actor/oinksie/table.h.omv~ libvisual-plugins-0.4.0/plugins/actor/oinksie/table.h
+--- libvisual-plugins-0.4.0/plugins/actor/oinksie/table.h.omv~	2022-01-12 15:59:22.424703997 +0100
++++ libvisual-plugins-0.4.0/plugins/actor/oinksie/table.h	2022-01-12 15:59:39.705704368 +0100
+@@ -27,10 +27,10 @@
+ #define OINK_TABLE_NORMAL_SIZE	1200
+ #define OINK_TABLE_LARGE_SIZE	12000
+ 
+-float _oink_table_sin[OINK_TABLE_NORMAL_SIZE];
+-float _oink_table_cos[OINK_TABLE_NORMAL_SIZE];
+-float _oink_table_sinlarge[OINK_TABLE_LARGE_SIZE];
+-float _oink_table_coslarge[OINK_TABLE_LARGE_SIZE];
++extern float _oink_table_sin[OINK_TABLE_NORMAL_SIZE];
++extern float _oink_table_cos[OINK_TABLE_NORMAL_SIZE];
++extern float _oink_table_sinlarge[OINK_TABLE_LARGE_SIZE];
++extern float _oink_table_coslarge[OINK_TABLE_LARGE_SIZE];
+ 
+ void _oink_table_init ();
+ 
