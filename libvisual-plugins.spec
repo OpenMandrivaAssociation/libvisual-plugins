@@ -43,6 +43,7 @@ export CXX=g++
 %ifarch %ix86
 export CFLAGS="-mmmx %optflags"
 %endif
+LDFLAGS="-Wl,--allow-multiple-definition" 
 %configure --disable-gstreamer-plugin
 %make_build
 
