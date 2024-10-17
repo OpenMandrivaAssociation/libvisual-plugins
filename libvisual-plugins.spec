@@ -8,7 +8,7 @@ Version:	0.4.0
 Release:	31
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://localhost.nl/~synap/libvisual-wiki/
+Url:		https://localhost.nl/~synap/libvisual-wiki/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
