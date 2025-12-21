@@ -19,6 +19,11 @@ Patch4:		libvisual-plugins-0.4.0-gcc5.patch
 Patch5:		libvisual-plugins-0.4.0-fix-build-with--fno-common.patch
 Patch6:		libvisual-plugins-0.4.0-clang.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(glu)
