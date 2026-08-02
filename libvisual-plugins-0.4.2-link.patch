@@ -1,0 +1,10 @@
+diff -urN a/plugins/actor/lv_gltest/Makefile.am b/plugins/actor/lv_gltest/Makefile.am
+--- a/plugins/actor/lv_gltest/Makefile.am	2023-03-20 03:04:42.000000000 +0100
++++ b/plugins/actor/lv_gltest/Makefile.am	2026-08-02 21:49:09.529090976 +0200
+@@ -4,5 +4,6 @@
+ 
+ actor_lv_gltest_la_CFLAGS = -I$(top_srcdir) $(LIBVISUAL_CFLAGS) $(GL_CFLAGS) $(GLU_CFLAGS)
+ actor_lv_gltest_la_LDFLAGS = -module -avoid-version 
++# Use LIBADD (not LIBS) so dependencies are linked into the module
+ actor_lv_gltest_la_LIBADD = $(LIBVISUAL_LIBS) $(GL_LIBS) $(GLU_LIBS)
+ actor_lv_gltest_la_SOURCES = actor_lv_gltest.c

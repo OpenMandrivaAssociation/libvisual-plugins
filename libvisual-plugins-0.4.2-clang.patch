@@ -1,0 +1,28 @@
+diff -urN a/plugins/actor/G-Force/Common/UI/LineXX.cpp b/plugins/actor/G-Force/Common/UI/LineXX.cpp
+--- a/plugins/actor/G-Force/Common/UI/LineXX.cpp	2023-03-20 03:04:42.000000000 +0100
++++ b/plugins/actor/G-Force/Common/UI/LineXX.cpp	2026-08-02 21:49:09.716088988 +0200
+@@ -74,13 +74,13 @@
+ 
+ 		
+ 	#if CLR_INTERP && P_SZ != 1
+-	int32_t len = sqrt( static_cast<float>(dx * dx + dy * dy) ) + 1;
++	int32_t len = sqrtf( static_cast<float>(dx * dx + dy * dy) ) + 1;
+ 	dR /= len;
+ 	dG /= len;
+ 	dB /= len;
+ 	color = __Clr( R, G, B );
+ 	#elif CLR_INTERP && P_SZ == 1
+-	int32_t len = sqrt( static_cast<float>(dx * dx + dy * dy) ) + 1;
++	int32_t len = sqrtf( static_cast<float>(dx * dx + dy * dy) ) + 1;
+ 	dR /= len;
+ 	color = __Clr( R, G, B );
+ 	#endif
+@@ -154,7 +154,7 @@
+ 		
+ 			for ( j = 0; j < tw; j++ ) {
+ 				int32_t tmp = j - halfW;
+-				c_x = halfW - ( ( int32_t ) sqrt( static_cast<float>(halfW * halfW - tmp * tmp) ) );
++				c_x = halfW - ( ( int32_t ) sqrtf( static_cast<float>(halfW * halfW - tmp * tmp) ) );
+ 				center = basePtr + (j-halfW) * mBytesPerRow;
+ 				for ( int k = c_x; k < tw - c_x; k++ ){
+ 					((PIXTYPE*) center)[k-halfW] = color;

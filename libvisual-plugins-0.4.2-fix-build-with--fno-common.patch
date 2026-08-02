@@ -1,0 +1,11 @@
+diff -urN a/plugins/actor/oinksie/table.h b/plugins/actor/oinksie/table.h
+--- a/plugins/actor/oinksie/table.h	2023-03-20 03:04:42.000000000 +0100
++++ b/plugins/actor/oinksie/table.h	2026-08-02 21:49:09.669457889 +0200
+@@ -27,6 +27,7 @@
+ #define OINK_TABLE_NORMAL_SIZE	1200
+ #define OINK_TABLE_LARGE_SIZE	12000
+ 
++/* defined in table.c - headers must only declare (for -fno-common) */
+ extern float _oink_table_sin[OINK_TABLE_NORMAL_SIZE];
+ extern float _oink_table_cos[OINK_TABLE_NORMAL_SIZE];
+ extern float _oink_table_sinlarge[OINK_TABLE_LARGE_SIZE];

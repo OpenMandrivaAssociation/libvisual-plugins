@@ -4,8 +4,8 @@
 
 Summary:	Visualisation plugins for applications based on libvisual
 Name:		libvisual-plugins
-Version:	0.4.0
-Release:	31
+Version:	0.4.2
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://localhost.nl/~synap/libvisual-wiki/
@@ -13,11 +13,11 @@ Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-buffer-overflow.patch
 #https://qa.mandriva.com/show_bug.cgi?id=49801
 Patch1:		60_no-const-vispluginfo-in-nastyfft.patch
-Patch2:		libvisual-plugins-0.4.0-link.patch
-Patch3:		libvisual-plugins-0.4.0-fix-some-gcc-warnings.patch
-Patch4:		libvisual-plugins-0.4.0-gcc5.patch
-Patch5:		libvisual-plugins-0.4.0-fix-build-with--fno-common.patch
-Patch6:		libvisual-plugins-0.4.0-clang.patch
+Patch2:		libvisual-plugins-0.4.2-link.patch
+Patch3:		libvisual-plugins-0.4.2-fix-some-gcc-warnings.patch
+Patch4:		libvisual-plugins-0.4.2-gcc5.patch
+Patch5:		libvisual-plugins-0.4.2-fix-build-with--fno-common.patch
+Patch6:		libvisual-plugins-0.4.2-clang.patch
 
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -42,12 +42,12 @@ This package contains the libvisual example plugins.
 
 %prep
 %autosetup -p1
+
+%build
 %ifarch %ix86
 export CFLAGS="-mmmx %optflags"
 %endif
 %configure --disable-gstreamer-plugin
-
-%build
 %make_build
 
 %install
